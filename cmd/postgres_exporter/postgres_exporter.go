@@ -626,9 +626,8 @@ func stringToColumnUsage(s string) (ColumnUsage, error) {
 func boolToFloat64(b bool) float64 {
 	if b {
 		return 1.0
-	} else {
-		return 0.0
 	}
+	return 0.0
 }
 
 // Convert database.sql types to float64s for Prometheus consumption. Null types are mapped to NaN. string and []byte
@@ -669,9 +668,8 @@ func dbToFloat64(t interface{}) (float64, bool) {
 func boolToString(b bool) string {
 	if b {
 		return "true"
-	} else {
-		return "false"
 	}
+	return "false"
 }
 
 // Convert database.sql to string for Prometheus labels. Null types are mapped to empty strings.
