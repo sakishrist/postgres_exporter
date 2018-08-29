@@ -264,11 +264,12 @@ func UnsetEnvironment(c *C, d string) {
 	c.Assert(err, IsNil)
 }
 
-//test boolean metric gets properly converted to float
-func (s *FunctionalSuite) TestDbToFloat64BooleanConversion(c *C) {
+// test boolean metric gets properly converted to float
+func (s *FunctionalSuite) TestBooleanConversionToValueAndString(c *C) {
 
 	type TestCase struct {
 		input interface {}
+		expectedString string
 		expectedValue float64
 		expectedOK bool
 	}
@@ -276,11 +277,13 @@ func (s *FunctionalSuite) TestDbToFloat64BooleanConversion(c *C) {
 	cases := []TestCase {
 		{
 			input: true,
+			expectedString: "true",
 			expectedValue: 1.0,
 			expectedOK: true,
 		},
 		{
 			input: false,
+			expectedString: "false",
 			expectedValue: 0.0,
 			expectedOK: true,
 		},
@@ -290,34 +293,9 @@ func (s *FunctionalSuite) TestDbToFloat64BooleanConversion(c *C) {
 		value, ok := dbToFloat64(cs.input)
 		c.Assert(value, Equals, cs.expectedValue)
 		c.Assert(ok, Equals, cs.expectedOK)
-	}
-}
 
-//test boolean metric gets properly converted to string
-func (s *FunctionalSuite) TestDbToStringBooleanConversion(c *C) {
-
-	type TestCase struct {
-		input interface {}
-		expectedValue string
-		expectedOK bool
-	}
-
-	cases := []TestCase {
-		{
-			input: true,
-			expectedValue: "true",
-			expectedOK: true,
-		},
-		{
-			input: false,
-			expectedValue: "false",
-			expectedOK: true,
-		},
-	}
-
-	for _, cs := range cases {
-		value, ok := dbToString(cs.input)
-		c.Assert(value, Equals, cs.expectedValue)
+		str, ok := dbToString(cs.input)
+		c.Assert(str, Equals, cs.expectedString)
 		c.Assert(ok, Equals, cs.expectedOK)
 	}
 }
