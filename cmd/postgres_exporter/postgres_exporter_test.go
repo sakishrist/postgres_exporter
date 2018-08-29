@@ -270,7 +270,7 @@ func (s *FunctionalSuite) TestDbToFloat64BooleanConversion(c *C) {
 	type TestCase struct {
 		input interface {}
 		expectedValue float64
-		expectedOK	  bool
+		expectedOK bool
 	}
 
 	cases := []TestCase {
@@ -299,7 +299,7 @@ func (s *FunctionalSuite) TestDbToStringBooleanConversion(c *C) {
 	type TestCase struct {
 		input interface {}
 		expectedValue string
-		expectedOK	  bool
+		expectedOK bool
 	}
 
 	cases := []TestCase {
