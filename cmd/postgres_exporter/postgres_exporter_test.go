@@ -268,24 +268,24 @@ func UnsetEnvironment(c *C, d string) {
 func (s *FunctionalSuite) TestBooleanConversionToValueAndString(c *C) {
 
 	type TestCase struct {
-		input interface {}
+		input          interface{}
 		expectedString string
-		expectedValue float64
-		expectedOK bool
+		expectedValue  float64
+		expectedOK     bool
 	}
 
-	cases := []TestCase {
+	cases := []TestCase{
 		{
-			input: true,
+			input:          true,
 			expectedString: "true",
-			expectedValue: 1.0,
-			expectedOK: true,
+			expectedValue:  1.0,
+			expectedOK:     true,
 		},
 		{
-			input: false,
+			input:          false,
 			expectedString: "false",
-			expectedValue: 0.0,
-			expectedOK: true,
+			expectedValue:  0.0,
+			expectedOK:     true,
 		},
 	}
 
