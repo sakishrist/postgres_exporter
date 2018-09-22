@@ -264,7 +264,7 @@ func UnsetEnvironment(c *C, d string) {
 	c.Assert(err, IsNil)
 }
 
-// test boolean metric gets properly converted to float
+// test boolean metric type gets converted to float
 func (s *FunctionalSuite) TestBooleanConversionToValueAndString(c *C) {
 
 	type TestCase struct {
