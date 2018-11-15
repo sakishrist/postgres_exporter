@@ -5,7 +5,7 @@
 [ ! -z "$GIT_ASSETS_BRANCH" ] || exit 1
 echo "GIT_ASSETS_BRANCH passed"
 echo "GIT_API_KEY: $GIT_API_KEY"
-[ ! -z "$GIT_API_KEY" ] || exit 1
+[ ! -z "$GIT_API_KEY" ] || exit 0 # testing
 echo "GIT_API_KEY passed"
 
 echo "Beginning git setup..."
